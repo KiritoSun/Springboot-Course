@@ -1,0 +1,28 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+.course-login{
+    position: relative;
+    width: 350px;
+    height: 265px;
+    margin: 0 auto;
+    margin-top: 100px;
+    color: #8692a1;
+}
+input[type="text"]{
+    position: relative;
+    width: 240px;
+    margin: 0 auto;
+}
+input[type="password"]{
+    position: relative;
+    width: 240px;
+    margin: 0 auto;
+}
+input[type="button"]{
+    position: relative;
+    width: 240px;
+    margin-left: 40px;
+}

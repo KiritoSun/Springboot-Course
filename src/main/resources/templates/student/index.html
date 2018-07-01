@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>学生选课系统</title>
+    <link rel="icon" href="img/title.png"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+<!-- 左侧部分 -->
+<div class="course-left">
+    <div class="course-title">
+        <img src="img/course.png" width="38" height="30"/>
+        选课系统
+    </div>
+    <div class="course-subtitle">
+        系统菜单
+    </div>
+    <ul class="course-menu">
+        <li class="menu-focus">
+            <span class="glyphicon glyphicon glyphicon-home"></span>
+            &nbsp;&nbsp;个人中心
+        </li>
+        <li>
+            <span class="glyphicon glyphicon glyphicon-hand-right"></span>
+            &nbsp;&nbsp;选课中心
+        </li>
+        <li>
+            <span class="glyphicon glyphicon glyphicon-check"></span>
+            &nbsp;&nbsp;已选课程
+        </li>
+        <li>
+            <span class="glyphicon glyphicon glyphicon-tasks"></span>
+            &nbsp;&nbsp;生成课表
+        </li>
+        <li>
+            <span class="glyphicon glyphicon glyphicon-log-out"></span>
+            &nbsp;&nbsp;退出登录
+        </li>
+    </ul>
+</div>
+<!-- 右侧部分 -->
+<div class="course-right">
+    <!-- 用户栏 -->
+    <div class="course-user">
+        <img name="menu" src="img/menu.png" width="30" height="30"/>
+        <img name="user" src="img/user.png"/>
+        <span name="name">name</span>
+    </div>
+    <!-- 界面显示栏 -->
+    <div class="course-show">
+        <div class="course-show-title">
+            <span name="select">选课部分</span>
+        </div>
+        <iframe src="table.html"></iframe>
+    </div>
+</div>
+</body>
+</html>
