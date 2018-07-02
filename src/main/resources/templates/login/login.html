@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>登录界面 - 学生选课系统</title>
@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/style/dialog.js"></script>
+    <script type="text/javascript" src="js/style/login.js"></script>
+    <script type="text/javascript" src="js/ajax/login.js"></script>
 </head>
 <body>
 <!-- 登录框 -->
@@ -18,10 +21,12 @@
         <hr/>
         <form>
             <input type="text" name="id" class="form-control" placeholder="id:" /><br/>
-            <input type="password" name="id" class="form-control" placeholder="password:" /><br/>
-            <input type="button" name="" class="btn btn-primary" value="登录"/>
+            <input type="password" name="password" class="form-control" placeholder="password:" /><br/>
+            <input type="button" name="submit" class="btn btn-primary" value="登录"/>
         </form>
     </div>
 </div>
+<!-- 引入提示框 -->
+<div class="dialog"></div>
 </body>
 </html>
