@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>选课中心 - 学生选课系统</title>
+    <link rel="icon" href="img/title.png"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script th:inline="javascript" type="text/javascript" src="js/style/student.js"></script>
+</head>
+<body>
+<!-- 加载菜单栏部分 -->
+<div th:replace="student/menu/menu :: header"></div>
+<!-- 右侧部分 -->
+<div class="course-right">
+    <!-- 加载用户栏 -->
+    <div th:replace="student/menu/user :: header"></div>
+    <!-- 界面显示栏 -->
+    <div class="course-show">
+        <div class="course-show-title">
+            <span name="select">
+                <span class="glyphicon glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;选课中心
+            </span>
+        </div>
+        <div name="fragment">
+            <table class="table table-bordered table-hover table-striped" style="color: #8692a1;">
+                <thead>
+                    <tr>
+                        <th>课程编号</th>
+                        <th>课程名</th>
+                        <th>上课地点</th>
+                        <th>上课时间</th>
+                        <th>学分</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item:${session.course}">
+                        <td th:text="${item.getC_id()}"></td>
+                        <td th:text="${item.getC_name()}"></td>
+                        <td th:text="${item.getC_room()}"></td>
+                        <td th:text="${item.getC_time()}"></td>
+                        <td th:text="${item.getC_point()}"></td>
+                        <td><input type="button" value="选课" class="btn btn-success" /></td>
+                    </tr>
+                </tbody>
+            </table>
+                <ul class="pagination" th:each="i:${#numbers.sequence(0,session.number)}">
+                    <li><a th:href="${'course?page='+(i+1)}" th:text="${i+1}"></a></li>
+                </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

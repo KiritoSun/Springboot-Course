@@ -1,62 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>学生选课系统</title>
+    <title>首页 - 学生选课系统</title>
     <link rel="icon" href="img/title.png"/>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script th:inline="javascript" type="text/javascript" src="js/style/student.js"></script>
 </head>
 <body>
-<!-- 左侧部分 -->
-<div class="course-left">
-    <div class="course-title">
-        <img src="img/course.png" width="38" height="30"/>
-        选课系统
-    </div>
-    <div class="course-subtitle">
-        学生菜单
-    </div>
-    <ul class="course-menu">
-        <li class="menu-focus">
-            <span class="glyphicon glyphicon glyphicon-home"></span>
-            &nbsp;&nbsp;个人中心
-        </li>
-        <li>
-            <span class="glyphicon glyphicon glyphicon-hand-right"></span>
-            &nbsp;&nbsp;选课中心
-        </li>
-        <li>
-            <span class="glyphicon glyphicon glyphicon-check"></span>
-            &nbsp;&nbsp;已选课程
-        </li>
-        <li>
-            <span class="glyphicon glyphicon glyphicon-tasks"></span>
-            &nbsp;&nbsp;生成课表
-        </li>
-        <li>
-            <span class="glyphicon glyphicon glyphicon-log-out"></span>
-            &nbsp;&nbsp;退出登录
-        </li>
-    </ul>
-</div>
+<!-- 加载菜单栏部分 -->
+<div th:replace="student/menu/menu :: header"></div>
 <!-- 右侧部分 -->
 <div class="course-right">
-    <!-- 用户栏 -->
-    <div class="course-user">
-        <img name="menu" src="img/menu.png" width="30" height="30"/>
-        <img name="user" src="img/user.png"/>
-        <span name="name">name</span>
-    </div>
+    <!-- 加载用户栏 -->
+    <div th:replace="student/menu/user :: header"></div>
     <!-- 界面显示栏 -->
     <div class="course-show">
         <div class="course-show-title">
-            <span name="select">选课部分</span>
+            <span name="select">
+                <span class="glyphicon glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页
+            </span>
         </div>
-        <!-- 引入其他页面 -->
-        <iframe src="table.html"></iframe>
+        <div name="fragment">
+            <div class="course-userInfo">
+                <table class="table">
+                    <thead class="">
+                        <tr>
+                            <th>个人信息</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>学生编号：<span th:text="${session.student.getS_id()}"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>学生姓名：<span th:text="${session.student.getS_name()}"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>学生性别：<span th:text="${session.student.getS_sex()}"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>学生专业：<span th:text="${session.student.getS_major()}"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>学生积分：<span th:text="${session.student.getS_point()}"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="course-indexInfo">
+                <div class="course-indexInfo-title">
+                    <img src="img/title2.png" width="20" height="20"/>&nbsp;&nbsp;选课说明:
+                </div>
+                <ul>
+                    <li>点击信息修改更改学生基本信息</li>
+                    <li>在选课中心进行选课操作</li>
+                    <li>点击已选课程能查看所选课程以及退课操作</li>
+                    <li>点击生成课表来查看课程表</li>
+                </ul>
+            </div>
+            <div class="course-indexInfo">
+                <div class="course-indexInfo-title">
+                    <img src="img/title3.png" width="20" height="20"/>&nbsp;&nbsp;选课开发情况:
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>选课模式：正选</td>
+                        <td>选课策略：可选可退</td>
+                    </tr>
+                    <tr>
+                        <td>开始时间：2018/7/1</td>
+                        <td>结束时间：2018/8/1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 </body>

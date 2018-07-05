@@ -28,7 +28,7 @@ body{
 }
 .course-menu{
 	position: relative;
-	top: 80px;
+	top: 60px;
 	padding: 0;
 }
 .course-menu li{
@@ -46,7 +46,7 @@ body{
 	border-bottom: 1px solid #233546;
 	border-right: 5px solid #1abb9c;
 	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
 	background-color: #314456;
 }
 .course-menu li:hover{
@@ -54,7 +54,7 @@ body{
 	border-bottom: 1px solid #233546;
 	border-right: 5px solid #1abb9c;
 	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
 	background-color: #314456;
 }
 .course-right{
@@ -118,11 +118,46 @@ body{
 	font-size: 18px;
 	font-weight: 400;
 }
-.course-show iframe{
+div[name="fragment"]{
 	position: relative;
 	width: 95%;
 	height: 360px;
 	margin-top: 20px;
 	margin-left: 30px;
 	border: none;
+	color: #8692a1;
+}
+.course-userInfo{
+	position: relative;
+	margin-top: 10px;
+	margin-left: 0px;
+	width: 250px;
+	height: 238px;
+	float: left;
+	border: 2px solid #e0e4e8;
+	border-radius: 15px;
+}
+.course-indexInfo{
+	position: relative;
+	margin-top: 20px;
+	margin-left: 80px;
+	padding-left: 10px;
+	width: 500px;
+	height: 160px;
+	float: left;
+	border-top: 2px dashed #e0e4e8;
+}
+.course-indexInfo-title{
+	position: relative;
+	font-size: 18px;
+	margin-top: 10px;
+}
+.course-indexInfo ul{
+	margin-top: 20px;
+}
+.course-indexInfo ul li{
+	margin-top: 5px;
+}
+.course-indexInfo table{
+	margin-top: 20px;
 }

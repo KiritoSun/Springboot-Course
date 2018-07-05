@@ -2,10 +2,10 @@ package com.zt.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 @Controller
 public class VisitController {
@@ -17,10 +17,11 @@ public class VisitController {
         try{
             session = request.getSession();
             session.setAttribute("user","student");
+            session.setAttribute("menu","index");
         }catch (Exception e){
             e.printStackTrace();
         }finally {}
-        if(session.getAttribute("s_id")==null) return "login/login";
+        if(session.getAttribute("student")==null) return "login/login";
         else return "student/index";
     }
 

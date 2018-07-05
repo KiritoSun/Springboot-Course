@@ -25,4 +25,16 @@ public class StudentServiceImpl implements StudentService {
         if(student.getS_password().equals(password)) return "s_success";
         else return "pno";
     }
+
+    @Override
+    public student getStudent(String id) {
+        student student = null;
+        try{
+            student = studentDao.selectById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        return student;
+    }
 }

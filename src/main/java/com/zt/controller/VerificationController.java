@@ -1,5 +1,6 @@
 package com.zt.controller;
 
+import com.zt.pojo.student;
 import com.zt.service.AdminService;
 import com.zt.service.StudentService;
 import com.zt.service.TeacherService;
@@ -40,7 +41,8 @@ public class VerificationController {
                 case "student":{
                     result = studentService.loginService(id,password);
                     if(result.equals("s_success")){
-                        session.setAttribute("s_id",id);
+                        student student = studentService.getStudent(id);
+                        session.setAttribute("student",student);
                     }
                     break;
                 }

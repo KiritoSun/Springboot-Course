@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>个人信息 - 学生选课系统</title>
+    <link rel="icon" href="img/title.png"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/style/student.js"></script>
+</head>
+<body>
+<!-- 加载菜单栏部分 -->
+<div th:replace="student/menu/menu :: header"></div>
+<!-- 右侧部分 -->
+<div class="course-right">
+    <!-- 加载用户栏 -->
+    <div th:replace="student/menu/user :: header"></div>
+    <!-- 界面显示栏 -->
+    <div class="course-show">
+        <div class="course-show-title">
+            <span name="select">
+                <span class="glyphicon glyphicon glyphicon-user"></span>&nbsp;&nbsp;信息修改
+            </span>
+        </div>
+        <!-- 引入其他页面 -->
+        <div name="fragment">
+            <form class="form-group" style="margin-left: 28%;" th:fragment="info">
+                <div class="form-inline">
+                    <label>学生编号：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" name="id" th:value="${session.student.getS_id()}" disabled="disabled" />
+                </div><br/>
+                <div class="form-inline">
+                    <label>学生姓名：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" name="name" th:value="${session.student.getS_name()}"/>
+                </div><br/>
+                <div class="form-inline">
+                    <label>学生密码：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" name="password" th:value="${session.student.getS_password()}"/>
+                </div><br/>
+                <div class="form-inline">
+                    <label>学生性别：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" name="sex" th:value="${session.student.getS_sex()}"/>
+                </div><br/>
+                <div class="form-inline">
+                    <label>学生专业：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" name="major" th:value="${session.student.getS_major()}"/>
+                </div><br/>
+                <div class="form-inline">
+                    <label>学生积分：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" name="point" th:value="${session.student.getS_point()}" disabled="disabled"/>
+                </div><br/>
+                <input type="button" name="submit" class="btn btn-primary" value="保存"  />
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
