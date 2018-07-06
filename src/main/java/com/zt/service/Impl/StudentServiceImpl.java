@@ -37,4 +37,15 @@ public class StudentServiceImpl implements StudentService {
         }
         return student;
     }
+
+    @Override
+    public boolean updateService(String id, String name, String sex, String password, String major) {
+        try{
+            studentDao.updateById(name,password,sex,major,id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 }

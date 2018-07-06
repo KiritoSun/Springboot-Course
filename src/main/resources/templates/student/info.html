@@ -8,7 +8,10 @@
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/style/dialog.js"></script>
+    <script type="text/javascript" src="js/ajax/student.js"></script>
     <script type="text/javascript" src="js/style/studentMenu.js"></script>
+    <script type="text/javascript" src="js/style/studentInfo.js"></script>
 </head>
 <body>
 <!-- 加载菜单栏部分 -->
@@ -51,10 +54,16 @@
                     <label>学生积分：</label>&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" class="form-control" name="point" th:value="${session.student.getS_point()}" disabled="disabled"/>
                 </div><br/>
-                <input type="button" name="submit" class="btn btn-primary" value="保存"  />
+                <div class="form-inline">
+                    <input type="button" name="restart" class="btn btn-default" value="重置"/>
+                    &nbsp;&nbsp;
+                    <input type="button" name="save" class="btn btn-primary" value="保存"  />
+                </div>
             </form>
         </div>
     </div>
 </div>
+<!-- 引入提示框 -->
+<div class="dialog"></div>
 </body>
 </html>

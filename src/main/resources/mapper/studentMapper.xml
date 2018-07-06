@@ -6,4 +6,7 @@
     <select id="selectById" resultType="com.zt.pojo.student" parameterType="String">
         SELECT * FROM student WHERE s_id=#{s_id}
     </select>
+    <update id="updateById">
+        UPDATE student SET s_name=#{s_name},s_password=#{s_password},s_sex=#{s_sex},s_major=#{s_major} WHERE s_id=#{s_id}
+    </update>
 </mapper>
