@@ -1,9 +1,10 @@
 $(function () {
-    // 击中效果
+    // 菜单栏击中效果
     var menu = get();
     console.log(menu);
     if(menu==null) $(".course-menu li[name='index']").addClass("menu-focus");
     else $(".course-menu li[name='"+menu+"']").addClass("menu-focus");
+    clear();
     // 菜单栏点击
     $(".course-menu li").click(function () {
         var menu = $(this).attr("name");
@@ -51,8 +52,6 @@ $(function () {
 
     // 清除class操作
     function clear() {
-        $(".course-menu li").each(function () {
-            $(this).removeClass("menu-focus");
-        });
+        sessionStorage.removeItem("menu");
     }
 })
