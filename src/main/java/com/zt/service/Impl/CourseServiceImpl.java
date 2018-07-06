@@ -21,8 +21,8 @@ public class CourseServiceImpl implements CourseService {
         List<course> newlist = new ArrayList<>();
         try{
             list = courseDao.selectAll();
-            int start = (page-1)*4;
-            for(int i=start;i<start+4;i++){
+            int start = (page-1)*5;
+            for(int i=start;i<start+5;i++){
                 if(i>=list.size()) break;
                 newlist.add(list.get(i));
             }
@@ -42,6 +42,6 @@ public class CourseServiceImpl implements CourseService {
             e.printStackTrace();
             return 0;
         }
-        return (list.size()/4);
+        return (list.size()/5);
     }
 }

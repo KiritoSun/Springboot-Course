@@ -4,7 +4,6 @@ $(function () {
     console.log(menu);
     if(menu==null) $(".course-menu li[name='index']").addClass("menu-focus");
     else $(".course-menu li[name='"+menu+"']").addClass("menu-focus");
-    clear();
     // 菜单栏点击
     $(".course-menu li").click(function () {
         var menu = $(this).attr("name");
@@ -33,7 +32,8 @@ $(function () {
                 break;
             }
             case "exit":{
-                alert("退出登录");
+                clear();
+                window.location.href="/exit";
                 break;
             }
             default:break;

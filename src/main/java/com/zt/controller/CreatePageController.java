@@ -45,4 +45,17 @@ public class CreatePageController {
         }finally {}
         return "student/course";
     }
+
+    // 退出登录
+    @RequestMapping("/exit")
+    public String exit(HttpServletRequest request){
+        HttpSession session = null;
+        try{
+            session = request.getSession();
+            session.removeAttribute("student");
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "login/login";
+    }
 }

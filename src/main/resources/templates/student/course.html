@@ -9,6 +9,7 @@
     <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
     <script th:inline="javascript" type="text/javascript" src="js/style/studentMenu.js"></script>
+    <script th:inline="javascript" type="text/javascript" src="js/style/studentCourse.js"></script>
 </head>
 <body>
 <!-- 加载菜单栏部分 -->
@@ -33,22 +34,30 @@
                         <th>上课地点</th>
                         <th>上课时间</th>
                         <th>学分</th>
+                        <th>积分</th>
                         <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="item:${session.course}">
-                        <td th:text="${item.getC_id()}"></td>
+                        <td name="id" th:text="${item.getC_id()}"></td>
                         <td th:text="${item.getC_name()}"></td>
                         <td th:text="${item.getC_room()}"></td>
                         <td th:text="${item.getC_time()}"></td>
                         <td th:text="${item.getC_point()}"></td>
+                        <td name="text"><input type="text" class="form-control" value="1" style="text-align:center;width: 50px;"/></td>
                         <td><input type="button" value="选课" class="btn btn-success" /></td>
                     </tr>
                 </tbody>
             </table>
+                <ul class="pagination">
+                    <li><a name="font">&laquo;</a></li>
+                </ul>
                 <ul class="pagination" th:each="i:${#numbers.sequence(0,session.number)}">
                     <li><a th:href="${'course?page='+(i+1)}" th:text="${i+1}"></a></li>
+                </ul>
+                <ul class="pagination" th:name="${session.number}">
+                    <li><a name="next">&raquo;</a></li>
                 </ul>
         </div>
     </div>
