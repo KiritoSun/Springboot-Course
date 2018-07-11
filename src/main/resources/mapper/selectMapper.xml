@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.zt.dao.SelectDao">
+    <insert id="insert" parameterType="com.zt.pojo.select">
+        INSERT INTO `select` VALUES (#{s_id},#{c_id},#{point})
+    </insert>
+    <select id="selects" resultType="com.zt.pojo.select">
+        SELECT * FROM `select` WHERE s_id=#{s_id} and c_id=#{c_id}
+    </select>
+    <select id="selectBySid" resultType="com.zt.pojo.select">
+        SELECT * FROM `select` WHERE s_id=#{s_id}
+    </select>
+</mapper>

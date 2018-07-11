@@ -9,4 +9,7 @@
     <update id="updateById">
         UPDATE student SET s_name=#{s_name},s_password=#{s_password},s_sex=#{s_sex},s_major=#{s_major} WHERE s_id=#{s_id}
     </update>
+    <update id="reducePoint">
+        UPDATE student SET s_point=s_point-#{s_point} WHERE s_id=#{s_id}
+    </update>
 </mapper>

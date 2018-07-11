@@ -1,6 +1,8 @@
 package com.zt.controller;
 
+import com.zt.pojo.select;
 import com.zt.pojo.student;
+import com.zt.service.SelectService;
 import com.zt.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,8 @@ import java.io.PrintWriter;
 public class StudentController {
     @Resource
     private StudentService studentService;
+    @Resource
+    private SelectService selectService;
 
     // 修改个人信息
     @RequestMapping(value = "/updateStudentInfo",method = RequestMethod.POST)
@@ -42,17 +46,23 @@ public class StudentController {
         out.close();
     }
 
-    // 退出登录
-    @RequestMapping("/exit")
-    public String exit(HttpServletRequest request){
-        HttpSession session = null;
+    // 选课操作
+    @RequestMapping(value = "/selectCourse",method = RequestMethod.POST)
+    public void selectCourse(@RequestParam(value = "id") String c_id,
+                             @RequestParam(value = "point") int point,
+                             HttpServletRequest request,HttpServletResponse response){
+        PrintWriter out = null;
         try{
-            session = request.getSession();
-            session.removeAttribute("student");
-        }catch (Exception e){
+            out = response.getWriter();
+            HttpSession session = request.getSession();
+            String s_id = ((student)session.getAttribute("student")).getS_id();
+            String result = selectService.selectCourse(new select(s_id,c_id,point));
+            out.print(result);
+            out.flush();
+        }catch (IOException e){
             e.printStackTrace();
         }finally {}
-        return "login/login";
+        out.close();
     }
 
 }

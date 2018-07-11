@@ -24,7 +24,8 @@ $(function () {
                 break;
             }
             case "select":{
-                alert("已选课程");
+                save("select");
+                window.location.href="/select";
                 break;
             }
             case "table":{

@@ -6,4 +6,7 @@
     <select id="selectAll" resultType="com.zt.pojo.course">
         SELECT * FROM course
     </select>
+    <select id="selectById" resultType="com.zt.pojo.course">
+        SELECT * FROM course WHERE c_id=#{c_id}
+    </select>
 </mapper>

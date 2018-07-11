@@ -26,9 +26,14 @@ $(function () {
     });
 
     // 点击选课
-    $("input[type='button']").click(function () {
+    $("input[name='select']").click(function () {
        var id = $(this).parent("td").parent("tr").children("td[name='id']").text();
        var point = $(this).parent("td").parent("tr").children("td[name='text']").children("input").val();
-       alert(id+" "+point);
+       if(point==""){
+           dialog("积分不能为空！");
+           return;
+       }
+       var data = {"id":id,"point":point};
+       select_studentCourse(data);
     });
 })

@@ -2,7 +2,9 @@ package com.zt.controller;
 
 import com.zt.pojo.course;
 import com.zt.pojo.student;
+import com.zt.pojo.vcourse;
 import com.zt.service.CourseService;
+import com.zt.service.SelectService;
 import com.zt.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,8 @@ public class CreatePageController {
     private StudentService studentService;
     @Resource
     private CourseService courseService;
+    @Resource
+    private SelectService selectService;
 
     // 请求访问学生首页
     @RequestMapping("/studentIndex")
@@ -49,6 +53,20 @@ public class CreatePageController {
             e.printStackTrace();
         }finally {}
         return "student/course";
+    }
+
+    // 请求显示已选课程
+    @RequestMapping("/select")
+    public String select(HttpServletRequest request){
+        try{
+            HttpSession session = request.getSession();
+            student student = (student) session.getAttribute("student");
+            List<vcourse> list = selectService.selectCourse2(student.getS_id());
+            session.setAttribute("select",list);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "student/select";
     }
 
     // 请求更新页面信息

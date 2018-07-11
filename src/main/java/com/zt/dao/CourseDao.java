@@ -9,4 +9,6 @@ import java.util.List;
 public interface CourseDao {
     // 查询所有记录
     public List<course> selectAll();
+    // 根据id查询记录
+    public course selectById(String c_id);
 }

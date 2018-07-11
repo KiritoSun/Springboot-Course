@@ -16,3 +16,46 @@ function update_studentInfo(data) {
         }
     });
 }
+
+// 学生选课操作
+function select_studentCourse(data) {
+    $.ajax({
+       method:"POST",
+       type:"POST",
+       url:"/selectCourse",
+       data:data,
+        success:function (msg) {
+            switch (msg){
+                case "success":{
+                    dialog("选课成功！");
+                    break;
+                }
+                case "npoint":{
+                    dialog("积分不够！");
+                    break;
+                }
+                case "no":{
+                    dialog("该课程已选！");
+                    break;
+                }
+                case "error":{
+                    dialog("选课失败！");
+                    break;
+                }
+                default:break;
+            }
+        },error:function () {
+            dialog("ajax出错！");
+        }
+    });
+}
+
+// 修改选课积分
+function update_point(data) {
+
+}
+
+// 退课
+function remove_course(data) {
+
+}

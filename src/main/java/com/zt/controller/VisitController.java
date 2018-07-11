@@ -53,4 +53,18 @@ public class VisitController {
         else return "admin/index";
     }
 
+    // 退出登录
+    @RequestMapping("/exit")
+    public String exit(HttpServletRequest request){
+        HttpSession session = null;
+        try{
+            session = request.getSession();
+            String user = session.getAttribute("user").toString();
+            session.removeAttribute(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "login/login";
+    }
+
 }
