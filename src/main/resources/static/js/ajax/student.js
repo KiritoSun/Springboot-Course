@@ -71,5 +71,20 @@ function update_point(data) {
 
 // 退课
 function remove_course(data) {
-
+    $.ajax({
+        method:"POST",
+        type:"POST",
+        url:"/removeSelect",
+        data:data,
+        success:function (msg) {
+            if(msg=="success"){
+                $("#"+data['id']).parent("tr").remove();
+                dialog("退课成功！");
+            }else{
+                dialog("退课失败！");
+            }
+        },error:function () {
+            dialog("ajax出错！");
+        }
+    });
 }

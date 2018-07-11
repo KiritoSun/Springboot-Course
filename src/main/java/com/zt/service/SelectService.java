@@ -13,4 +13,6 @@ public interface SelectService {
     public List<vcourse> selectCourse2(String s_id);
     // 修改积分业务
     public boolean updatePoint(select select);
+    // 退课业务
+    public boolean removeCourse(String s_id,String c_id);
 }

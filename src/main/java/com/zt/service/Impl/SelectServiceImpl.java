@@ -77,4 +77,17 @@ public class SelectServiceImpl implements SelectService {
         }
         return true;
     }
+
+    @Override
+    public boolean removeCourse(String s_id, String c_id) {
+        try{
+            int point = selectDao.selects(s_id,c_id).getPoint();
+            studentDao.plusPoint(s_id,point);
+            selectDao.delete(s_id,c_id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 }

@@ -43,7 +43,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="item:${session.select}">
-                    <td name="id" th:text="${item.getC_id()}"></td>
+                    <td th:id="${item.getC_id()}" name="id" th:text="${item.getC_id()}"></td>
                     <td th:text="${item.getC_name()}"></td>
                     <td th:text="${item.getC_room()}"></td>
                     <td th:text="${item.getC_time()}"></td>

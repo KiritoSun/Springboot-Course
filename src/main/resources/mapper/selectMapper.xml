@@ -15,4 +15,7 @@
     <update id="updatePoint" parameterType="com.zt.pojo.select">
         UPDATE `select` SET point=#{point} WHERE s_id=#{s_id} and c_id=#{c_id}
     </update>
+    <delete id="delete">
+        DELETE FROM `select` WHERE s_id=#{s_id} and c_id=#{c_id}
+    </delete>
 </mapper>

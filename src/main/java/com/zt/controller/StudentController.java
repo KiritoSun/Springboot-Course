@@ -85,4 +85,22 @@ public class StudentController {
         out.close();
     }
 
+    // 退课操作
+    @RequestMapping(value = "/removeSelect",method = RequestMethod.POST)
+    public void removeSelect(@RequestParam(value = "id") String c_id,
+                             HttpServletRequest request,HttpServletResponse response){
+        PrintWriter out = null;
+        try{
+            out = response.getWriter();
+            HttpSession session = request.getSession();
+            String s_id = ((student)session.getAttribute("student")).getS_id();
+            selectService.removeCourse(s_id,c_id);
+            out.print("success");
+            out.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {}
+
+    }
+
 }

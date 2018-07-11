@@ -16,4 +16,6 @@ public interface SelectDao {
     public List<select> selectBySid(String s_id);
     // 修改积分
     public void updatePoint(select select);
+    // 删除一条记录
+    public void delete(@Param("s_id") String s_id,@Param("c_id") String c_id);
 }
