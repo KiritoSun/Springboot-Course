@@ -12,4 +12,7 @@
     <update id="reducePoint">
         UPDATE student SET s_point=s_point-#{s_point} WHERE s_id=#{s_id}
     </update>
+    <update id="plusPoint">
+        UPDATE student SET s_point=s_point+#{s_point} WHERE s_id=#{s_id}
+    </update>
 </mapper>

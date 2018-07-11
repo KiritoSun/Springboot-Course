@@ -12,4 +12,7 @@
     <select id="selectBySid" resultType="com.zt.pojo.select">
         SELECT * FROM `select` WHERE s_id=#{s_id}
     </select>
+    <update id="updatePoint" parameterType="com.zt.pojo.select">
+        UPDATE `select` SET point=#{point} WHERE s_id=#{s_id} and c_id=#{c_id}
+    </update>
 </mapper>

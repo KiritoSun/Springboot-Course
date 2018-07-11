@@ -57,4 +57,24 @@ public class SelectServiceImpl implements SelectService {
         }finally {}
         return list2;
     }
+
+    @Override
+    public boolean updatePoint(select select) {
+        try{
+            int old = selectDao.selects(select.getS_id(),select.getC_id()).getPoint();
+            if(old<select.getPoint()){
+                int newpoint = select.getPoint()-old;
+                studentDao.reducePoint(select.getS_id(),newpoint);
+            }
+            if(old>select.getPoint()){
+                int newpoint = old-select.getPoint();
+                studentDao.plusPoint(select.getS_id(),newpoint);
+            }
+            selectDao.updatePoint(select);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 }

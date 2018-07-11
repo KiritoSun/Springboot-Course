@@ -14,4 +14,6 @@ public interface SelectDao {
     public select selects(@Param("s_id") String s_id,@Param("c_id") String c_id);
     // 根据学生id查询
     public List<select> selectBySid(String s_id);
+    // 修改积分
+    public void updatePoint(select select);
 }

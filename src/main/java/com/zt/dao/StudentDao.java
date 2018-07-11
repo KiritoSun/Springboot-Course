@@ -13,4 +13,6 @@ public interface StudentDao {
                            @Param("s_sex") String s_sex,@Param("s_major") String s_major,@Param("s_id") String s_id);
     // 扣除积分操作
     public void reducePoint(@Param("s_id") String s_id,@Param("s_point") int s_point);
+    // 返还积分操作
+    public void plusPoint(@Param("s_id") String s_id,@Param("s_point") int s_point);
 }

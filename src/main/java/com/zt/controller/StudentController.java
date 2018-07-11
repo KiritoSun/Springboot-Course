@@ -65,4 +65,24 @@ public class StudentController {
         out.close();
     }
 
+    // 修改积分操作
+    @RequestMapping(value = "/updatePoint",method = RequestMethod.POST)
+    public void updatePoint(@RequestParam(value = "id") String c_id,
+                            @RequestParam(value = "point") int point,
+                            HttpServletRequest request,HttpServletResponse response){
+        PrintWriter out = null;
+        try{
+            out = response.getWriter();
+            HttpSession session = request.getSession();
+            String s_id = ((student)session.getAttribute("student")).getS_id();
+            select select = new select(s_id,c_id,point);
+            selectService.updatePoint(select);
+            out.print("success");
+            out.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {}
+        out.close();
+    }
+
 }

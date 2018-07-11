@@ -52,7 +52,21 @@ function select_studentCourse(data) {
 
 // 修改选课积分
 function update_point(data) {
-
+    $.ajax({
+        method:"POST",
+        type:"POST",
+        url:"/updatePoint",
+        data:data,
+        success:function (msg) {
+            if(msg=="success"){
+                dialog("修改积分成功！");
+            }else{
+                dialog("修改积分失败！");
+            }
+        },error:function () {
+            dialog("ajax出错！");
+        }
+    });
 }
 
 // 退课
